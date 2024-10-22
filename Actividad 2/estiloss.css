@@ -20,29 +20,28 @@ header {
     background-color: #7dff7d;
     padding: 10px 0;
     color: rgb(252, 250, 250);
-    box-shadow: 4px 4px 4px 4px rgb(255, 252, 252)
+    box-shadow: 4px 4px 4px 4px rgb(255, 252, 252);
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
+    justify-content: center; /* Centra los elementos en pantallas grandes */
     color: white;
-
+    padding: 0; /* Eliminar el padding predeterminado */
+    margin: 0; /* Eliminar el margen predeterminado */
 }
 
 nav ul li {
-    margin: 0 20px;
-    border-top: solid transparent;  /* Establecemos un borde transparente inicialmente */
+    margin: 0 20px; /* Mantener el margen lateral para pantallas grandes */
+    border-top: solid transparent;  
     border-bottom: solid transparent;
     transition: border 0.3s ease;
-    
 }
-nav ul li:hover{
+
+/* Borde visible en hover */
+nav ul li:hover {
     border-top: solid #000000;
-    border-bottom: solid 2px #000000;
-    border-top: solid 2px #000000;
     border-bottom: solid 2px #000000;
     transform: translateY(-3px);
 }
@@ -50,11 +49,29 @@ nav ul li:hover{
 nav ul li a {
     color: #000000;
     text-decoration: none;
-    font-size: 27px;
+    font-size: 27px; /* Tamaño de fuente para pantallas grandes */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Cambiar a columna para móviles */
+        align-items: stretch; /* Alinear los elementos para que ocupen todo el ancho */
+    }
+
+    nav ul li {
+        width: 100%; /* Hacer que cada elemento ocupe todo el ancho disponible solo en móviles */
+        margin: 5px 0; /* Margen vertical para separación */
+    }
+
+    nav ul li a {
+        display: block; /* Hacer que el enlace ocupe todo el ancho del li */
+        width: 100%; /* Asegurarse de que el enlace ocupe todo el ancho disponible */
+        font-size: 20px; /* Tamaño de fuente ajustado para móviles */
+        padding: 10px 0; /* Añadir padding vertical para más área clickeable */
+    }
+}
 
 
 /* MAIN */
@@ -80,42 +97,48 @@ padding: 10px;
 margin: 0;
 }
 
-.cont{
-display: flex;
-justify-content: center;
-background-color: rgb(65, 65, 65);
-align-items: center;
-height: 400px;
+.cont {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a columna para mejor visualización en móviles */
+    align-items: center;
+    background-color: rgb(65, 65, 65);
+    padding: 20px; /* Agrega un poco de padding para móviles */
+    height: auto; /* Permite que el contenedor se ajuste al contenido */
 }
 
 .donde {
-font-size: 70px;
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-color: #7dff7d;
-padding-left: 50px;
+    font-size: 70px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #7dff7d;
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Espacio debajo del título */
 }
+
 .mapa {
-margin-left: 50px;
-width: 100%; /* Ajusta el ancho al 100% del contenedor */
-max-width: 100%; /* Evita que el mapa sea más ancho que su contenedor */
-height:100%;
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    max-width: 100%; /* Evita que el mapa sea más ancho que su contenedor */
+    height: 300px; /* Ajusta la altura del mapa */
+    border: 0; /* Elimina el borde */
 }
 
-
-.separador{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    background-color: #000000;
-    color: white;
-}
-.estilo{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 5px;
-    padding-top: 30px;
-}
+    .separador {
+        height: auto; /* Cambia a auto para que la altura se ajuste al contenido */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 20px; /* Agrega un padding para el contenido */
+        background-color: #000000;
+        color: white;
+    }
+    
+    .estilo {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        letter-spacing: 5px;
+        font-size: 24px; /* Tamaño de fuente adecuado para móviles */
+        text-align: center; /* Centra el texto */
+        padding: 0; /* Elimina padding adicional para responsividad */
+    }
+    
 .carousel-item img {
 height: 500px; /* Ajusta la altura que prefieras */
 width: auto;   /* Para mantener la proporción del ancho */
@@ -415,9 +438,40 @@ h3:hover{
       height: 500px; /* Ajusta la altura para pantallas grandes */
     }
   }
-  
 
+  /* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Cambiar a columna para móviles */
+        align-items: stretch; /* Alinear los elementos para que ocupen todo el ancho */
+    }
 
+    nav ul li {
+        width: 100%; /* Hacer que cada elemento ocupe todo el ancho disponible solo en móviles */
+        margin: 5px 0; /* Margen vertical para separación */
+    }
 
+    nav ul li a {
+        display: block; /* Hacer que el enlace ocupe todo el ancho del li */
+        width: 100%; /* Asegurarse de que el enlace ocupe todo el ancho disponible */
+        font-size: 20px; /* Tamaño de fuente ajustado para móviles */
+        padding: 10px 0; /* Añadir padding vertical para más área clickeable */
+    }
+}
+@media (max-width: 600px) {
+    .estilo {
+        font-size: 20px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+        letter-spacing: 3px; /* Reduce el espaciado entre letras en móviles */
+    }
+}
 
+@media (max-width: 768px) {
+    .donde {
+        font-size: 40px; /* Disminuye el tamaño de la fuente para móviles */
+        padding-left: 0; /* Elimina el padding en móviles */
+    }
 
+    .mapa {
+        height: 200px; /* Ajusta la altura del mapa para móviles */
+    }
+}
